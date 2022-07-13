@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,21 +25,26 @@
     <main> 
         <div class="container">
             <div class="row justify-content-center">
-            ${employeeCards}
-            
-            <div class="card col-4">
-    <div class="card-header">
-        <h2 class="card-title">${answers.name}</h2>
-        <h3 class="card-title"><i class="bi bi-mortarboard"></i> ${answers.role}</h3>
-    </div>
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: ${answers.id}</li>
-            <li class="list-group-item">Email: <a href="mailto:${answers.email}">${answers.email}</a></li>
-            <li class="list-group-item">School: ${answers.school}</li>            
-        </ul>
-    </div>
-</div>
+            function generateEmployeeCard(team) {
+    const cardsArray = []
+    for (let i = 0; i < team.length; i++) {
+        const data = team[i]
+
+        if (data.getRole() === 'Manager') {
+            cardsArray.push(generateManagerCard())
+        }
+        
+        if (data.getRole() === 'Engineer') {
+            cardsArray.push(generateEngineerCard())
+        }
+        
+        if (data.getRole() === 'Intern') {
+            cardsArray.push(generateInternCard())
+        }
+    }
+    const cardsString = cardsArray.join('')
+    return cardsString
+}
             </div>
         </div>    
     </main>
@@ -47,5 +53,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </body>
-
 </html>
