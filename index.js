@@ -25,7 +25,7 @@ const createProfile = () => {
             message: "Please enter team member's ID",
             validate: id => {
                 if (isNaN(id)) {
-                    console.log("\nPlease enter team member's ID!")
+                    console.log("\nYou have entered an invalid ID!")
                     return false
                 } else {
                     return true
@@ -54,11 +54,12 @@ const createProfile = () => {
             name: 'email',
             message: "Please enter team member's email",
             validate: email => {
-                const emailType = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-                if (emailType) {
+                // Reference: W3resource.(https://www.w3resource.com/javascript/form/email-validation.php)
+                const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                if (emailformat) {
                     return true
                 } else {
-                    console.log("\nPlease enter team member's Email!")
+                    console.log("\nYou have entered an invalid email address!")
                     return false
                 }
             }
