@@ -13,4 +13,4 @@ This is the Module 10 Challenge. The request is to build a Node.js command-line 
 
 ## URL
 * Github: https://github.com/Fredbian/MONU-FSF-Module-10-Team-Profile-Generator 
-* Walkthrough Video: 
+* Walkthrough Video: https://drive.google.com/file/d/1BqDxDdqXluwEFt83d5Rg8vyOnh6csxDH/view
