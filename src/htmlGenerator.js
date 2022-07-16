@@ -18,8 +18,7 @@ function generateManagerCard(employee) {
 }
 
 // function for Engineer card
-function generateEngineerCard(employee) {
-    if (employee.getRole() === 'Engineer') {
+function generateEngineerCard(employee) {    
         return `
         <div class="card col-4">
         <div class="card-header">
@@ -30,17 +29,15 @@ function generateEngineerCard(employee) {
             <ul class="list-group">
                 <li class="list-group-item">ID: ${employee.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
-                <li class="list-group-item">Github: ${employee.getGithub()}</li>            
+                <li class="list-group-item">Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a></li>            
             </ul>
         </div>
     </div>    
     `
 }
-}
 
 // function for Intern card
-function generateInternCard(employee) {
-    if (employee.getRole() === 'Intern') {
+function generateInternCard(employee) {    
         return `
     <div class="card col-4">
         <div class="card-header">
@@ -57,28 +54,29 @@ function generateInternCard(employee) {
     </div>
     `
 }
-}
 
 // function for employee cards
-const employeeCards = function generateEmployeeCard(team) {
+function generateEmployeeCard(team) {
     const cards = []
+    // loop team array, get employee info
     for (let i = 0; i < team.length; i++) {
         const employee = team[i]
-        
+        // if role is Manager, call generate Manager card
         if (employee.getRole() === 'Manager') {
-            cards.push(generateManagerCard())
+            cards.push(generateManagerCard(employee))
         }
-        
+        // if role is Engineer, call generate Engineer card
         if (employee.getRole() === 'Engineer') {
-            cards.push(generateEngineerCard())
+            cards.push(generateEngineerCard(employee))
         }
-        
+        // if role is Intern, call generate Intern card
         if (employee.getRole() === 'Intern') {
-            cards.push(generateInternCard())
+            cards.push(generateInternCard(employee))
         }
     }
+    // convert cards array to string
     const cardsContent = cards.join('')
-    return cardsString
+    return cardsContent
 }
 
 
@@ -112,7 +110,7 @@ function generateHTML(team) {
     <main> 
     <div class="container">
     <div class="row justify-content-center">
-    ${employeeCards}
+    ${generateEmployeeCard(team)}
     </div>
     </div>    
     </main>

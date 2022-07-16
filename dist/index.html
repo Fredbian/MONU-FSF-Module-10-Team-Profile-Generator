@@ -25,26 +25,91 @@
     <main> 
     <div class="container">
     <div class="row justify-content-center">
-    function generateEmployeeCard(team) {
-    const cards = []
-    for (let i = 0; i < team.length; i++) {
-        const employee = team[i]
-        
-        if (employee.getRole() === 'Manager') {
-            cards.push(generateManagerCard())
-        }
-        
-        if (employee.getRole() === 'Engineer') {
-            cards.push(generateEngineerCard())
-        }
-        
-        if (employee.getRole() === 'Intern') {
-            cards.push(generateInternCard())
-        }
-    }
-    const cardsContent = cards.join('')
-    return cardsString
-}
+    
+    <div class="card col-4">
+        <div class="card-header">
+        <h2 class="card-title">aaa</h2>
+            <h3 class="card-title"><i class="bi bi-cup"></i> Manager</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: 1</li>
+                <li class="list-group-item">Email: <a href="mailto:aaa">aaa</a></li>
+                <li class="list-group-item">Office Number: 123</li>            
+            </ul>
+        </div>
+    </div>
+    
+        <div class="card col-4">
+        <div class="card-header">
+            <h2 class="card-title">Fred</h2>
+            <h3 class="card-title"><i class="bi bi-eyeglasses"></i> Engineer</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: 2</li>
+                <li class="list-group-item">Email: <a href="mailto:bbb">bbb</a></li>
+                <li class="list-group-item">Github: <a href="https://github.com/Fredbian">Fredbian</a></li>            
+            </ul>
+        </div>
+    </div>    
+    
+        <div class="card col-4">
+        <div class="card-header">
+            <h2 class="card-title">ccc</h2>
+            <h3 class="card-title"><i class="bi bi-eyeglasses"></i> Engineer</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: 3</li>
+                <li class="list-group-item">Email: <a href="mailto:ccc">ccc</a></li>
+                <li class="list-group-item">Github: <a href="https://github.com/ccc">ccc</a></li>            
+            </ul>
+        </div>
+    </div>    
+    
+        <div class="card col-4">
+        <div class="card-header">
+            <h2 class="card-title">fff</h2>
+            <h3 class="card-title"><i class="bi bi-eyeglasses"></i> Engineer</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: 4</li>
+                <li class="list-group-item">Email: <a href="mailto:fff">fff</a></li>
+                <li class="list-group-item">Github: <a href="https://github.com/fff">fff</a></li>            
+            </ul>
+        </div>
+    </div>    
+    
+    <div class="card col-4">
+        <div class="card-header">
+            <h2 class="card-title">eee</h2>
+            <h3 class="card-title"><i class="bi bi-mortarboard"></i> Intern</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: 5</li>
+                <li class="list-group-item">Email: <a href="mailto:eee">eee</a></li>
+                <li class="list-group-item">School: eee</li>            
+            </ul>
+        </div>
+    </div>
+    
+        <div class="card col-4">
+        <div class="card-header">
+            <h2 class="card-title">sdfsdfs</h2>
+            <h3 class="card-title"><i class="bi bi-eyeglasses"></i> Engineer</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: 6</li>
+                <li class="list-group-item">Email: <a href="mailto:sdfsdf">sdfsdf</a></li>
+                <li class="list-group-item">Github: <a href="https://github.com/sdfsdfs">sdfsdfs</a></li>            
+            </ul>
+        </div>
+    </div>    
+    
     </div>
     </div>    
     </main>
