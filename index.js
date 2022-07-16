@@ -3,9 +3,9 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 
 // import lib
-const engineer = require('./lib/engineer')
-const intern = require('./lib/intern')
-const manager = require('./lib/manager')
+const Engineer = require('./lib/engineer')
+const Intern = require('./lib/intern')
+const Manager = require('./lib/manager')
 
 // html
 const generateHTML = require('./src/htmlGenerator')
@@ -22,20 +22,48 @@ const createProfile = () => {
         {
             type: 'input',
             name: 'id',
-            message: "Please enter team member's id"
+            message: "Please enter team member's ID",
+            validate: id => {
+                if (isNaN(id)) {
+                    console.log("\nPlease enter team member's ID!")
+                    return false
+                } else {
+                    return true
+                }
+            }
         },
+
         // get name
         {
             type: 'input',
             name: 'name',
-            message: "Please enter team member's name"
+            message: "Please enter team member's name",
+            validate: name => {
+                if (name) {
+                    return true
+                } else {
+                    console.log("\nPlease enter team member's name!")
+                    return false
+                }
+            }
         },
+
         // get email
         {
             type: 'input',
             name: 'email',
-            message: "Please enter team member's email"
+            message: "Please enter team member's email",
+            validate: email => {
+                const emailType = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                if (emailType) {
+                    return true
+                } else {
+                    console.log("\nPlease enter team member's Email!")
+                    return false
+                }
+            }
         },
+
         // choose role
         {
             type: 'list',
@@ -43,26 +71,51 @@ const createProfile = () => {
             message: "Please select team member's role",
             choices: ['Manager', 'Engineer', 'Intern']
         },
+
         // get office number when role is Manager
         {
             type: 'input',
             name: 'officeNumber',
             message: "Please enter Manager's office number",
-            when: (answers) => answers.role === 'Manager'
+            when: (answers) => answers.role === 'Manager',
+            validate: officeNumber => {
+                if (isNaN(officeNumber)) {
+                    console.log("\nPlease enter Manager's office number!")
+                    return false
+                } else {
+                    return true
+                }
+            }
         },
         // get github username when role is Engineer
         {
             type: 'input',
             name: 'github',
             message: "Please enter Engineer's github username",
-            when: (answers) => answers.role === 'Engineer'
+            when: (answers) => answers.role === 'Engineer',
+            validate: github => {
+                if (github) {
+                    return true
+                } else {
+                    console.log("\nPlease enter Engineer's Github username!")
+                    return false
+                }
+            }
         },
         // get school name when role is Intern
         {
             type: 'input',
             name: 'school',
             message: "Please enter Intern's school name",
-            when: (answers) => answers.role === 'Intern'
+            when: (answers) => answers.role === 'Intern',
+            validate: school => {
+                if (school) {
+                    return true
+                } else {
+                    console.log("\nPlease enter Intern's school!")
+                    return false
+                }
+            }
         },
         // if add member member
         {
@@ -81,17 +134,17 @@ const createProfile = () => {
         const school = answers.school
         // role is Manager, push info to array
         if (role === 'Manager') {
-            team.push(new manager(id, name, email, officeNumber))
+            team.push(new Manager(id, name, email, officeNumber))
         } 
 
         // role is Engineer, push info to array
         if (role === 'Engineer') {
-            team.push(new engineer(id, name, email, github))
+            team.push(new Engineer(id, name, email, github))
         }
 
         // role is Intern, push info to array
         if (role === 'Intern') {
-            team.push(new intern(id, name, email, school))
+            team.push(new Intern(id, name, email, school))
         }
 
         console.log(team)

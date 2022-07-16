@@ -29,7 +29,7 @@ function generateEngineerCard(employee) {
             <ul class="list-group">
                 <li class="list-group-item">ID: ${employee.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
-                <li class="list-group-item">Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a></li>            
+                <li class="list-group-item">Github: <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a></li>            
             </ul>
         </div>
     </div>    
@@ -80,7 +80,6 @@ function generateEmployeeCard(team) {
 }
 
 
-
 // function to rander HTML
 function generateHTML(team) {
     return `
@@ -110,6 +109,7 @@ function generateHTML(team) {
     <main> 
     <div class="container">
     <div class="row justify-content-center">
+    <!-- team cards  -->
     ${generateEmployeeCard(team)}
     </div>
     </div>    
